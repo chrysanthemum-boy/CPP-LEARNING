@@ -1,0 +1,35 @@
+#include <iostream>        //用VC++时改为∶ #include <iostream.h>
+using namespace std;      //用VC++时为取消此行
+class Complex
+ {public:
+   Complex(){real=0;imag=0;}
+   Complex(double r,double i){real=r;imag=i;}
+   Complex(int i){real=i;imag=0;}
+   friend Complex operator+(Complex,Complex);
+   void display();
+  private:
+   double real;
+   double imag;
+ };
+ 
+void Complex::display()
+{cout<<"("<<real<<","<<imag<<"i)"<<endl;}
+
+Complex operator+(Complex c1,Complex c2)
+{return Complex(c1.real+c2.real,c1.imag+c2.imag);}
+
+int main()
+{Complex c1(3,4),c2(5,-10),c3;
+ int i=5;
+ c3=c1+c2;
+ cout<<"c1+c2=";
+ c3.display();
+ c3=i+c1;
+ cout<<"i+c1=";
+ c3.display();
+ c3=c1+i;
+ cout<<"c1+i=";
+ c3.display();
+ system("pause");
+ return 0;
+}

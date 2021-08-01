@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+bool prime(int);
+void gotbaha(int);
+int main( )
+{
+	int n;
+	cin>>n;
+	gotbaha(n);
+	cout<<endl;
+	system("pause");
+    return 0;
+}
+bool prime(int m)
+{
+	bool flag=true;
+	for(int i=2;i<m;i++)
+		if(m%i==0) flag=false;
+	return flag;
+}
+void gotbaha(int t)
+{
+	for(int i=1;i<=t/2;i++)
+		if(prime(t-i)&&prime(i)) cout<<t-i<<i<<endl;
+	return;
+}
